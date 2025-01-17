@@ -12,6 +12,10 @@ app.use('/pair', async (req, res, next) => {
     res.sendFile(__path + '/pair.html');
 });
 
+app.use('/check', async (req, res, next) => {
+    res.sendFile(__path + '/checker.html');
+});
+
 // مسیر برای فایل اصلی index.html
 app.use('/', async (req, res, next) => {
     res.sendFile(__path + '/index.html');

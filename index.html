@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOTHING | PAIR WEB</title>
+  <title>NOTHING | PAIR WEB V2</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
@@ -199,6 +199,27 @@
 </head>
 <body>
 
+<style>
+  #usa-clock {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9); /* پس‌زمینه سفید با شفافیت */
+    color: #000; /* متن مشکی */
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* افکت سایه برای 3D */
+    transform: rotateX(5deg) rotateY(5deg); /* افکت چرخش برای 3D */
+    transition: all 0.3s ease-in-out; /* اضافه کردن انیمیشن تغییر */
+    z-index: 1000;
+  }
+</style>
+
+<div id="usa-clock">Loading...</div>
+
 <!-- Popup Card Overlay and Popup -->
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup-card" id="popupCard">
@@ -214,7 +235,7 @@
     Made by <a href="https://whatsapp.com/channel/0029Vasu3qP9RZAUkVkvSv32">NOTHING TECH</a> © 2025 - <span id="currentYear">2025</span> All rights reserved.
   </footer>
   
-  <button onclick="window.open(`../pair`)" class="glow-on-hover">PAIR CODE</button>
+  <button onclick="window.open(`../check`)" class="glow-on-hover">PAIR CODE</button>
   <button ></button>
   <button ></button>
   <button onclick="window.open(`https://github.com/TraderAn-King`)" class="glow-on-hover">GITHUB</button>
@@ -228,5 +249,22 @@
   <button ></button>
   <button onclick="window.open(`https://whatsapp.com/channel/0029Vasu3qP9RZAUkVkvSv32`)" class="glow-on-hover">WHATSAPP</button>
 
+<script>
+  function updateUSATime() {
+    const options = {
+      timeZone: "Asia/Kabul", // تنظیم به منطقه زمانی آمریکا
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true, // نمایش ساعت به‌صورت 12 ساعته
+    };
+    const now = new Date();
+    document.getElementById("usa-clock").textContent = new Intl.DateTimeFormat("en-US", options).format(now);
+  }
+
+  // به‌روزرسانی هر ثانیه
+  setInterval(updateUSATime, 1000);
+  updateUSATime();
+</script>
 </body>
 </html>
