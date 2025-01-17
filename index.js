@@ -12,8 +12,8 @@ app.use('/', async (req, res, next) => {
     res.sendFile(__path + '/index.html');
 });
 
-app.get('/pair', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pair.html'));
+app.use('/pair', async (req, res, next) => {
+    res.sendFile(__path + '/pair.html');
 });
 
 app.use(bodyParser.json());
