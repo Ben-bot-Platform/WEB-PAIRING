@@ -70,30 +70,24 @@
       }
 
       const owner = "TraderAn-King"; // مالک مخزن
-      const repo = "Ben-bot";       // نام مخزن
-      const token = "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"; // توکن GitHub خود را وارد کنید
+      const repo = "Ben-bot";        // نام مخزن
 
       try {
-        // درخواست به API GitHub
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/forks`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+        // درخواست به API GitHub بدون توکن
+        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/forks`);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
         }
 
         const forks = await response.json();
-        console.log(forks);  // مشاهده نتایج API
         const isForked = forks.some(fork => fork.owner.login === username);
 
         if (isForked) {
-          resultDiv.textContent = `Yes, ${username} has forked the repository. Redirecting...`;
+          resultDiv.textContent = `Yes, ${username} has forked the repository. Wait...`;
           resultDiv.style.color = "green";
           setTimeout(() => {
-            window.location.href = "pair"; // هدایت به ../pair
+            window.location.href = "../pair"; // هدایت به ../pair
           }, 2000); // زمان تأخیر 2 ثانیه
         } else {
           resultDiv.innerHTML = `No, ${username} has NOT forked the repository. Please <a href="https://github.com/${owner}/${repo}/fork" target="_blank">fork it here</a>.`;
