@@ -7,13 +7,14 @@ let code = require('./pair');
 require('events').EventEmitter.defaultMaxListeners = 500;
 app.use('/code', code);
 
+// مسیر برای فایل pair.html
+app.use('/pair', async (req, res, next) => {
+    res.sendFile(__path + '/pair.html');
+});
+
 // مسیر برای فایل اصلی index.html
 app.use('/', async (req, res, next) => {
     res.sendFile(__path + '/index.html');
-});
-
-app.use('/pair', async (req, res, next) => {
-    res.sendFile(__path + 'pair.html');
 });
 
 app.use(bodyParser.json());
