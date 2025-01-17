@@ -11,7 +11,7 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-image: url("https://i.ibb.co/QcP3Byh/ccb5e017f3895c328123f0b95ee2b9ec.jpg"); /* Set the background image */
+      background-image: url("https://files.catbox.moe/jg7rcb.jpg"); /* Set the background image */
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -116,6 +116,50 @@
     color: #000;
 }
 
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #1A1A1A;
+      color: #bbb;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    /* Popup Card Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Reduced opacity */
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-card {
+      background: rgba(51, 51, 51, 0.35); /* Reduced opacity to 35% */
+      color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 255, 255, 0.9); /* Brighter and extended white glow */
+      width: 70%;
+      max-width: 350px;
+      text-align: center;
+      display: none;
+      animation: popupAnimation 2s ease-out forwards;
+      border: 1.5px solid #38ef7d; /* Narrower 1.5px green border */
+      position: relative;
+    }
+    
 .glow-on-hover:active:after {
     background: transparent;
 }
@@ -153,6 +197,21 @@
 </head>
 <body>
 
+<!-- Popup Card Overlay and Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-card" id="popupCard">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h2>Join Our WhatsApp Channel</h2>
+      <p>Join our WhatsApp channel to get updates on PRABATH MD's latest news, issues, and updates. Stay connected with us!</p>
+      <a href="/join" target="_blank">Join Now</a>
+    </div>
+  </div>
+  
+  
+  <footer>
+    Made by <a href="https://whatsapp.com/channel/0029Vasu3qP9RZAUkVkvSv32">NOTHING TECH</a> © 2025 - <span id="currentYear">2025</span> All rights reserved.
+  </footer>
+  
   <button onclick="window.open(`/pair`)" class="glow-on-hover">PAIR CODE</button>
   <button ></button>
   <button ></button>
